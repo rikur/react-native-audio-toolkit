@@ -123,7 +123,7 @@ RCT_EXPORT_METHOD(prepare:(nonnull NSNumber*)playerId
     
     // Set audio session
     NSError *error = nil;
-    [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: &error];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&error];
     if (error) {
         NSDictionary* dict = [Helpers errObjWithCode:@"preparefail"
                                          withMessage:@"Failed to set audio session category."];
